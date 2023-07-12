@@ -1,0 +1,19 @@
+Domanda 1:
+SELECT COUNT(`id`),YEAR(`enrolment_date`) AS 'Anno di iscrizione'
+FROM `students` 
+GROUP BY `Anno di iscrizione` ;
+
+Domanda 2:
+SELECT COUNT(`id`), `teachers`.`office_address`
+FROM `teachers` 
+GROUP BY `office_address`;
+
+Domanda 3:
+SELECT AVG(`vote`), exam_id AS'Appello dell\'esame'
+FROM `exam_student` 
+GROUP BY `exam_id`;
+
+Domanda 4:
+SELECT COUNT(`degrees`.`name`)AS 'Corsi di laureat' ,`department_id` AS'department'
+FROM `degrees`
+GROUP BY department_id;

@@ -1,0 +1,44 @@
+Domanda 1:
+SELECT  `degrees`.`name`,`students`.`name`,`students`.`surname`
+FROM `degrees`
+JOIN `students`
+ON `students`.`degree_id`= `degree_id`
+WHERE  `degrees`.`name`= 'Corso di Laurea in Economia';
+
+Domanda 2:
+SELECT `departments`.`name` AS 'department name', `degrees`.`name` AS 'courses name ',`degrees`.`level`
+FROM `departments`
+JOIN `degrees`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `departments`.`name`='Dipartimento di Neuroscienze'
+AND `degrees`.`level` = 'magistrale';
+
+Domanda 3:
+SELECT `teachers`.`name`,`teachers`.`surname`, `courses`.`name`
+FROM `teachers`
+JOIN `course_teacher` ON `teachers`.`id`= `course_teacher`.`teacher_id`
+JOIN `courses` ON `courses`.`id`= `course_teacher`.`course_id`
+WHERE `teachers`.`id`= 44;
+
+Domanda 4:
+SELECT `students`.`name`, `students`.`surname`, `degrees`.`name`AS 'Name degrees', `departments`.`name` AS'Department name'
+FROM `departments` 
+JOIN `degrees` ON `departments`.`id`= `degrees`.`department_id` 
+JOIN `students`ON `degrees`.`id`= `students`.`degree_id`;
+ORDER BY `students`.`name` ASC ,  `students`.`surname`ASC;
+
+Domanda 5:
+SELECT `teachers`.`name`, `teachers`.`surname`, `courses`.`name`AS'Name course',   `degrees`.`name`AS 'Name degrees'
+FROM `teachers`
+JOIN `course_teacher` ON `teachers`.`id`= `course_teacher`.`teacher_id`
+JOIN `courses`ON `courses`.`id`= `course_teacher`.`course_id`
+JOIN `degrees` ON `degrees`.`id`= `courses`.`degree_id`;
+
+Domanda 6:
+SELECT `teachers`.`name`, `teachers`.`surname`,`departments`.`name` AS'Department name'
+FROM `teachers`
+JOIN `course_teacher` ON `teachers`.`id`= `course_teacher`.`teacher_id`
+JOIN `courses`ON `courses`.`id`= `course_teacher`.`course_id`
+JOIN `degrees` ON `degrees`.`id`= `courses`.`degree_id`
+JOIN `departments` ON `departments`.`id`=`degrees`.`department_id`
+WHERE `departments`.`name`='Dipartimento di Matematica';
